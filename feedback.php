@@ -207,6 +207,7 @@ if (isset($_POST['update_feedback'])) {
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Message</th>
+                                    <th>Order ID</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -222,6 +223,7 @@ if (isset($_POST['update_feedback'])) {
                                     echo "<td>" . htmlspecialchars($row['email']) . "</td>";
                                     echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
                                     echo "<td>" . htmlspecialchars($row['message']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['order_id']) . "</td>";
                                     echo "<td>
                                             <a href='feedback.php?action=edit&fid={$row['id']}' class='btn btn-outline-primary btn-sm'>Edit</a>
                                             <a href='feedback.php?action=delete&fid={$row['id']}' class='btn btn-outline-danger btn-sm' onclick='return confirm(\"Are you sure?\")'>Delete</a>
