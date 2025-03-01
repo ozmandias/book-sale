@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.book-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    width: 900px;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+.book-image {
+    width: 40%;
+    height: auto;
+    border-radius: 5px;
+}
+.book-details {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.book-details h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.book-details p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.btn-container {
+    display: flex;
+    gap: 10px;
+}
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.edit-btn {
+    background-color: #28a745;
+    color: white;
+}
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+.popular-books {
+    width: 920px;
+}
+.book-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+    .book-container {
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .book-image {
+        width: 100%;
+    }
+    .book-details {
+        width: 100%;
+        text-align: center;
+    }
+}
