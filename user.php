@@ -3,6 +3,8 @@
     include "./programming/html_generator.php";
     include "./programming/user/user_controller.php";
 
+    session_start();
+
     if(isset($_GET["action"]) && $_GET["action"] == "delete") {
         $delete_status = delete_user();
         if($delete_status) {

@@ -56,7 +56,7 @@
 					</div>
 					<div class="col-md-6">
 						<div class="right-element">
-							<?php if($_SESSION["isLoggedIn"] == true): ?>
+							<?php if($_SESSION["isLoggedIn"] && $_SESSION["isLoggedIn"] == true): ?>
 								<?php if($_SESSION["user_type"] == "Admin"):?>
 									<a href="dashboard.php" class="user-account for-buy"><span>Dashboard</span></a>
 								<?php else: ?>

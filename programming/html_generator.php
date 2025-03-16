@@ -111,7 +111,6 @@
         }
 
         else if($type == "user_list") {
-            session_start();
             $current_id = $_SESSION['id'];
             $current_username = $_SESSION['username'];
             $current_email = $_SESSION['email'];
