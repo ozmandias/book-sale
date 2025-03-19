@@ -1,107 +1,114 @@
 <?php
-	require "./programming/database_connect.php";
-	require "./programming/book/book_controller.php";
-	require "./programming/order/order_controller.php";
-	require "./programming/feedback/feedback_controller.php";
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    
+    include './programming/feedback/connection.php';
+    require_once './programming/feedback/feedback_controller.php';
 
-    session_start();
+	session_start();
 
-	if(isset($_POST['btn_place_order'])) {
-        $order_data = create_order();
-		$create_book_status = $order_data[0];
-		$create_book_result_id = $order_data[1];
-
-		$create_feedback_status = false;
-		if($_POST["message"]) {
-			$create_feedback_status = create_feedback_from_order($create_book_result_id);
-		} else {
-			$create_feedback_status = true;
-		}
-        
-		if($create_book_status && $create_feedback_status) {
-            header("Location: ./all.php");
+    if (isset($_GET['action'])) {
+        if ($_GET['action'] == 'delete' && isset($_GET['fid'])) {
+            delfeedback($_GET['fid']);
+        } elseif ($_GET['action'] == 'edit' && isset($_GET['fid'])) {
+            $fid = intval($_GET['fid']);
+            $query = "SELECT * FROM feedback WHERE id = $fid";
+            $go_query = mysqli_query($connection, $query);
+            $feedback = mysqli_fetch_assoc($go_query);
         }
     }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    
+	<title>Book Sale</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
-            background-color: #fdfbf7;
-            background-size: cover;
-            background-position: center;
-            color: #333;
+            background-color: #ADD8E6;
+            color: white;
+        }
+        .container {
+            max-width: 1680px;
             height: 100vh;
-            margin: 0;
         }
-        .order-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
+        .card {
+            background-color: white;
         }
-        .order-form {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            width: 400px;
+        .table {
+            background-color: white;
         }
-        .order-button {
-            margin: 20px 0 0 0;
+        .table td, .table th {
+            color: black;
         }
-        h1 {
-            text-align: center;
-            color: #8b4513;
-            font-family: 'Garamond', serif;
+        .table th {
+            background-color: #0056b3;
+            color: white;
         }
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
+        .navbar {
+            background-color: #f3f2ec;
+            padding-left: 4rem;
+            padding-right: 4rem;
         }
-        input, select, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 8px;
-            border: 1px solid #bdbdbd;
-            font-size: 16px;
+        ul.navbar-nav.mx-auto.mb-2.mb-lg-0 {
+            margin-right: 10% !important;
         }
-        button {
-            background-color: #8b4513;
+        .nav-item {
+            padding-left: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-link {
             color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 18px;
         }
-        button:hover {
-            background-color: #5d3311;
+        
+        .nav-link.active,
+        .nav-link:hover {
+            color: #47b2e4 !important;
         }
 
-        input, select, label {
-            margin: 0 0 10px 0 !important;
+        .btn-primary{
+            background-color: #47b2e4 !important;
+            border-color: #47b2e4 !important;
+        }
+
+        .btn-write {
+            background-color: #17a2b8 !important;
+            color: #ffffff !important;
+            height: 50px;
+            border-radius: 5px !important;
+        }
+
+        .add-book-btn, .add-user-btn{
+            box-shadow: 0 3px 8px black;
         }
     </style>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
-<body>
-    <div class="header-wrap">
+
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+
+	<div class="header-wrap">
 		<div class="top-content">
 			<div class="container-fluid">
 				<div class="row">
@@ -217,59 +224,57 @@
 			</div>
 		</header>
 	</div><!--header-wrap-->
-    
-    <div class="order-container">
-        <form class="order-form" method="POST">
-            <h1>📚 Book Order 📚</h1>
-    
-			<?php
-				$books = get_books();
-				$cart_book_id = null;
-				
-				if(isset($_GET["book_id"])) {
-					$cart_book_id = $_GET["book_id"];
-				}
 
-				echo "<label for='book_id'>Select Book</label>";
-				echo "<select id='book_id' name='book_id' required>";
-				foreach ($books as $book) {
-					if($book["id"] == $cart_book_id) {
-						echo "<option value='{$book['id']}' selected>{$book['title']}</option>";
-					} else {
-						echo "<option value='{$book['id']}'>{$book['title']}</option>";
-					}
-				}
-				echo "</select>";
-			?>
-    
-            <label for="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="1">
-    
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-    
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-    
-            <label for="phone">Phone Number</label>
-            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-    
-            <label for="address">Shipping Address</label>
-            <textarea id="address" name="address" placeholder="Enter your address" rows="3" required></textarea>
-    
-            <label for="order_date">Deliver Date</label>
-            <input type="date" id="order_date" name="order_date">
+    <div class="row justify-content-center mt-4">
+            <div class="col-md-10">
+                <button class="btn btn-write" onclick="write_to_page()">Write</button>
+                <div class="card">
+                    <div class="card-header text-center text-white" style="background-color: #17A2B8;">
+                        <h4>Customer Feedback</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Feedback List -->
+                        <table class="table table-striped table-bordered mt-4">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <!-- <th>Phone</th> -->
+                                    <th>Message</th>
+                                    <!-- <th>Order ID</th> -->
+                                    <!-- <th>Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $query = "SELECT * FROM feedback ORDER BY id ASC";
+                                $go_query = mysqli_query($connection, $query);
 
-			<label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Enter your message" rows="3"></textarea>
+                                while ($row = mysqli_fetch_assoc($go_query)) {
+                                    echo "<tr>";
+                                    echo "<td>{$row['id']}</td>";
+                                    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                                    // echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['message']) . "</td>";
+                                    // echo "<td>" . htmlspecialchars($row['order_id']) . "</td>";
+                                    /*echo "<td>
+                                            <a href='feedback.php?action=edit&fid={$row['id']}' class='btn btn-outline-primary btn-sm'>Edit</a>
+                                            <a href='feedback.php?action=delete&fid={$row['id']}' class='btn btn-outline-danger btn-sm' onclick='return confirm(\"Are you sure?\")'>Delete</a>
+                                        </td>";*/
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
 
-			<input name='status' type='text' class='form-control' id='status' placeholder='status' value='pending' hidden>
-    
-            <button class="order-button" name="btn_place_order" type="submit">✨ Place Order ✨</button>
-        </form>
+                    </div>
+                </div>
+            </div>
     </div>
-
-    <footer id="footer">
+	
+	<footer id="footer">
 		<div class="container">
 			<div class="row">
 
@@ -404,12 +409,14 @@
 		</div>
 	</div>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery-1.11.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
+    <script src="./programming/review_script.js"></script>
 
 </body>
+
 </html>

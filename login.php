@@ -104,6 +104,7 @@
 
                                 </li>
                                 <li class="menu-item"><a href="all.php" class="nav-link">All Books</a></li>
+                                <li class="menu-item"><a href="review.php" class="nav-link">Feedback</a></li>
                                 <!-- <li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
                                 <li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li> -->
                             </ul>

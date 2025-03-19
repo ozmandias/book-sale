@@ -56,7 +56,7 @@
             $result = mysqli_query($connection, $query);
     
             if ($result) {
-                echo "<script>alert('Feedback added successfully!'); window.location.href='feedback.php';</script>";
+                echo "<script>alert('Feedback added successfully!'); /*window.location.href='feedback.php';*/ window.location.href='review.php'; </script>";
                 exit();
             } else {
                 die("Query Failed: " . mysqli_error($connection));

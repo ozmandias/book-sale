@@ -170,7 +170,7 @@ if (isset($_POST['update_feedback'])) {
                     </div>
                     <div class="card-body">
                         <!-- Feedback Form -->
-                        <form method="POST" action="feedback.php">
+                        <!-- <form method="POST" action="feedback.php">
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
                                 <input type="text" class="form-control" name="name" 
@@ -196,7 +196,7 @@ if (isset($_POST['update_feedback'])) {
                             <?php } else { ?>
                                 <button type="submit" name="add_feedback" class="btn btn-success">Submit Feedback</button>
                             <?php } ?>
-                        </form>
+                        </form> -->
 
                         <!-- Feedback List -->
                         <table class="table table-striped table-bordered mt-4">
@@ -207,7 +207,7 @@ if (isset($_POST['update_feedback'])) {
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Message</th>
-                                    <th>Order ID</th>
+                                    <!-- <th>Order ID</th> -->
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -223,11 +223,11 @@ if (isset($_POST['update_feedback'])) {
                                     echo "<td>" . htmlspecialchars($row['email']) . "</td>";
                                     echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
                                     echo "<td>" . htmlspecialchars($row['message']) . "</td>";
-                                    echo "<td>" . htmlspecialchars($row['order_id']) . "</td>";
-                                    echo "<td>
-                                            <a href='feedback.php?action=edit&fid={$row['id']}' class='btn btn-outline-primary btn-sm'>Edit</a>
-                                            <a href='feedback.php?action=delete&fid={$row['id']}' class='btn btn-outline-danger btn-sm' onclick='return confirm(\"Are you sure?\")'>Delete</a>
-                                        </td>";
+                                    // echo "<td>" . htmlspecialchars($row['order_id']) . "</td>";
+                                    echo "<td>";
+                                        // echo "<a href='feedback.php?action=edit&fid={$row['id']}' class='btn btn-outline-primary btn-sm'>Edit</a>";
+                                        echo "<a href='feedback.php?action=delete&fid={$row['id']}' class='btn btn-outline-danger btn-sm' onclick='return confirm(\"Are you sure?\")'>Delete</a>";
+                                    echo "</td>";
                                     echo "</tr>";
                                 }
                                 ?>
