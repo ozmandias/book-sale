@@ -36,16 +36,16 @@
 						<div class="social-links">
 							<ul>
 								<li>
-									<a href="#"><i class="icon icon-facebook"></i></a>
+									<a><i class="icon icon-facebook"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-twitter"></i></a>
+									<a><i class="icon icon-twitter"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-youtube-play"></i></a>
+									<a><i class="icon icon-youtube-play"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-behance-square"></i></a>
+									<a><i class="icon icon-behance-square"></i></a>
 								</li>
 							</ul>
 						</div><!--social-links-->
@@ -56,7 +56,7 @@
 								<?php if($_SESSION["user_type"] == "Admin"):?>
 									<a href="dashboard.php" class="user-account for-buy"><span>Dashboard</span></a>
 								<?php else: ?>
-									<a href="" class="user-account for-buy dropdown-toggle" data-bs-toggle="dropdown"><span><?php $username = $_SESSION["username"]; echo $username; ?></span></a>
+									<a class="user-account for-buy dropdown-toggle" data-bs-toggle="dropdown"><span><?php $username = $_SESSION["username"]; echo $username; ?></span></a>
 									<ul class="dropdown-menu">
 										<li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
 									</ul>
@@ -72,7 +72,7 @@
 							<!--<div class="action-menu">
 
 								<div class="search-bar">
-									<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+									<a class="search-button search-toggle" data-selector="#header-wrap">
 										<i class="icon icon-search"></i>
 									</a>
 									<form role="search" method="get" class="search-box">
@@ -163,8 +163,8 @@
 									ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
 									urna, a eu.</p>
 								<div class="btn-wrap">
-									<a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
-											class="icon icon-ns-arrow-right"></i></a>
+									<!-- <a class="btn btn-outline-accent btn-accent-arrow">Read More<i
+											class="icon icon-ns-arrow-right"></i></a> -->
 								</div>
 							</div><!--banner-content-->
 							<img src="images/main-banner1.jpg" alt="banner" class="banner-image">
@@ -177,7 +177,7 @@
 									ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
 									urna, a eu.</p>
 								<div class="btn-wrap">
-									<a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
+									<a class="btn btn-outline-accent btn-accent-arrow">Read More<i
 											class="icon icon-ns-arrow-right"></i></a>
 								</div>
 							</div><!--banner-content-->
@@ -202,11 +202,11 @@
 				<div class="inner-content">
 					<div class="logo-wrap">
 						<div class="grid">
-							<a href="#"><img src="images/client-image1.png" alt="client"></a>
-							<a href="#"><img src="images/client-image2.png" alt="client"></a>
-							<a href="#"><img src="images/client-image3.png" alt="client"></a>
-							<a href="#"><img src="images/client-image4.png" alt="client"></a>
-							<a href="#"><img src="images/client-image5.png" alt="client"></a>
+							<a><img src="images/client-image1.png" alt="client"></a>
+							<a><img src="images/client-image2.png" alt="client"></a>
+							<a><img src="images/client-image3.png" alt="client"></a>
+							<a><img src="images/client-image4.png" alt="client"></a>
+							<a><img src="images/client-image5.png" alt="client"></a>
 						</div>
 					</div><!--image-holder-->
 				</div>
@@ -335,7 +335,7 @@
 										libero ipsum enim pharetra hac.</p>
 									<div class="item-price">$ 45.00</div>
 									<div class="btn-wrap">
-										<!-- <a href="#" class="btn-accent-arrow">shop it now <i
+										<!-- <a class="btn-accent-arrow">shop it now <i
 												class="icon icon-ns-arrow-right"></i></a> -->
 									</div>
 								</div>
@@ -932,27 +932,27 @@
 							<article class="column" data-aos="fade-up">
 
 								<figure>
-									<a href="#" class="image-hvr-effect">
+									<a class="image-hvr-effect">
 										<img src="images/post-img1.jpg" alt="post" class="post-image">
 									</a>
 								</figure>
 
 								<div class="post-item">
 									<div class="meta-date">Mar 30, 2021</div>
-									<h3><a href="#">Reading books always makes the moments happy</a></h3>
+									<h3><a>Reading books always makes the moments happy</a></h3>
 
 									<div class="links-element">
 										<div class="categories">inspiration</div>
 										<div class="social-links">
 											<ul>
 												<li>
-													<a href="#"><i class="icon icon-facebook"></i></a>
+													<a><i class="icon icon-facebook"></i></a>
 												</li>
 												<li>
-													<a href="#"><i class="icon icon-twitter"></i></a>
+													<a><i class="icon icon-twitter"></i></a>
 												</li>
 												<li>
-													<a href="#"><i class="icon icon-behance-square"></i></a>
+													<a><i class="icon icon-behance-square"></i></a>
 												</li>
 											</ul>
 										</div>
@@ -966,26 +966,26 @@
 
 							<article class="column" data-aos="fade-up" data-aos-delay="200">
 								<figure>
-									<a href="#" class="image-hvr-effect">
+									<a class="image-hvr-effect">
 										<img src="images/post-img2.jpg" alt="post" class="post-image">
 									</a>
 								</figure>
 								<div class="post-item">
 									<div class="meta-date">Mar 29, 2021</div>
-									<h3><a href="#">Reading books always makes the moments happy</a></h3>
+									<h3><a>Reading books always makes the moments happy</a></h3>
 
 									<div class="links-element">
 										<div class="categories">inspiration</div>
 										<div class="social-links">
 											<ul>
 												<li>
-													<a href="#"><i class="icon icon-facebook"></i></a>
+													<a><i class="icon icon-facebook"></i></a>
 												</li>
 												<li>
-													<a href="#"><i class="icon icon-twitter"></i></a>
+													<a><i class="icon icon-twitter"></i></a>
 												</li>
 												<li>
-													<a href="#"><i class="icon icon-behance-square"></i></a>
+													<a><i class="icon icon-behance-square"></i></a>
 												</li>
 											</ul>
 										</div>
@@ -999,26 +999,26 @@
 
 							<article class="column" data-aos="fade-up" data-aos-delay="400">
 								<figure>
-									<a href="#" class="image-hvr-effect">
+									<a class="image-hvr-effect">
 										<img src="images/post-img3.jpg" alt="post" class="post-image">
 									</a>
 								</figure>
 								<div class="post-item">
 									<div class="meta-date">Feb 27, 2021</div>
-									<h3><a href="#">Reading books always makes the moments happy</a></h3>
+									<h3><a>Reading books always makes the moments happy</a></h3>
 
 									<div class="links-element">
 										<div class="categories">inspiration</div>
 										<div class="social-links">
 											<ul>
 												<li>
-													<a href="#"><i class="icon icon-facebook"></i></a>
+													<a><i class="icon icon-facebook"></i></a>
 												</li>
 												<li>
-													<a href="#"><i class="icon icon-twitter"></i></a>
+													<a><i class="icon icon-twitter"></i></a>
 												</li>
 												<li>
-													<a href="#"><i class="icon icon-behance-square"></i></a>
+													<a><i class="icon icon-behance-square"></i></a>
 												</li>
 											</ul>
 										</div>
@@ -1034,8 +1034,8 @@
 					<div class="row">
 
 						<div class="btn-wrap align-center">
-							<a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0">Read All Articles<i
-									class="icon icon-ns-arrow-right"></i></a>
+							<!-- <a class="btn btn-outline-accent btn-accent-arrow" tabindex="0">Read All Articles<i
+									class="icon icon-ns-arrow-right"></i></a> -->
 						</div>
 					</div>
 
@@ -1101,10 +1101,10 @@
 						<h5>About Us</h5>
 						<ul class="menu-list">
 							<li class="menu-item">
-								<a href="#">vision</a>
+								<a>vision</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">articles </a>
+								<a>articles </a>
 							</li>	
 							</li>
 						</ul>
@@ -1120,10 +1120,10 @@
 								<a href="index.php">Home</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">Books</a>
+								<a>Books</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">Authors</a>
+								<a>Authors</a>
 							</li>
 						
 							
@@ -1137,13 +1137,13 @@
 						<h5>My account</h5>
 						<ul class="menu-list">
 							<li class="menu-item">
-								<a href="#">Sign In</a>
+								<a>Sign In</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">View Cart</a>
+								<a>View Cart</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">Track My Order</a>
+								<a>Track My Order</a>
 							</li>
 						</ul>
 					</div>
@@ -1156,7 +1156,7 @@
 						<ul class="menu-list">
 							
 							<li class="menu-item">
-								<a href="#">Contact us</a>
+								<a>Contact us</a>
 							</li>
 						</ul>
 					</div>
@@ -1179,23 +1179,23 @@
 
 							<div class="col-md-6">
 								<p>© 2025 Copy rights  
-									<a href="#" target="_blank">Book Sale</a></p>
+									<a target="_blank">Book Sale</a></p>
 							</div>
 
 							<div class="col-md-6">
 								<div class="social-links align-right">
 									<ul>
 										<li>
-											<a href="#"><i class="icon icon-facebook"></i></a>
+											<a><i class="icon icon-facebook"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-twitter"></i></a>
+											<a><i class="icon icon-twitter"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-youtube-play"></i></a>
+											<a><i class="icon icon-youtube-play"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-behance-square"></i></a>
+											<a><i class="icon icon-behance-square"></i></a>
 										</li>
 									</ul>
 								</div>

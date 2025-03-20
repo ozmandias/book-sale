@@ -122,16 +122,16 @@
 						<div class="social-links">
 							<ul>
 								<li>
-									<a href="#"><i class="icon icon-facebook"></i></a>
+									<a><i class="icon icon-facebook"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-twitter"></i></a>
+									<a><i class="icon icon-twitter"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-youtube-play"></i></a>
+									<a><i class="icon icon-youtube-play"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-behance-square"></i></a>
+									<a><i class="icon icon-behance-square"></i></a>
 								</li>
 							</ul>
 						</div><!--social-links-->
@@ -158,7 +158,7 @@
 							<!--<div class="action-menu">
 
 								<div class="search-bar">
-									<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+									<a class="search-button search-toggle" data-selector="#header-wrap">
 										<i class="icon icon-search"></i>
 									</a>
 									<form role="search" method="get" class="search-box">
@@ -298,10 +298,10 @@
 						<h5>About Us</h5>
 						<ul class="menu-list">
 							<li class="menu-item">
-								<a href="#">vision</a>
+								<a>vision</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">articles </a>
+								<a>articles </a>
 							</li>
 							</li>
 						</ul>
@@ -317,10 +317,10 @@
 								<a href="index.php">Home</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">Books</a>
+								<a>Books</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">Authors</a>
+								<a>Authors</a>
 							</li>
 
 
@@ -334,13 +334,13 @@
 						<h5>My account</h5>
 						<ul class="menu-list">
 							<li class="menu-item">
-								<a href="#">Sign In</a>
+								<a>Sign In</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">View Cart</a>
+								<a>View Cart</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">Track My Order</a>
+								<a>Track My Order</a>
 							</li>
 						</ul>
 					</div>
@@ -353,7 +353,7 @@
 						<ul class="menu-list">
 
 							<li class="menu-item">
-								<a href="#">Contact us</a>
+								<a>Contact us</a>
 							</li>
 						</ul>
 					</div>
@@ -376,7 +376,7 @@
 
 							<div class="col-md-6">
 								<p>© 2025 Copy rights
-									<a href="#" target="_blank">Book Sale</a>
+									<a target="_blank">Book Sale</a>
 								</p>
 							</div>
 
@@ -384,16 +384,16 @@
 								<div class="social-links align-right">
 									<ul>
 										<li>
-											<a href="#"><i class="icon icon-facebook"></i></a>
+											<a><i class="icon icon-facebook"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-twitter"></i></a>
+											<a><i class="icon icon-twitter"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-youtube-play"></i></a>
+											<a><i class="icon icon-youtube-play"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-behance-square"></i></a>
+											<a><i class="icon icon-behance-square"></i></a>
 										</li>
 									</ul>
 								</div>
