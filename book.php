@@ -102,6 +102,7 @@
               <th scope="col">Id</th>
               <th scope="col">Cover Image</th>
               <th scope="col">Title</th>
+              <th scope="col">Category</th>
               <th scope="col">Author</th>
               <th scope="col">Price</th>
               <th scope="col">Stock</th>

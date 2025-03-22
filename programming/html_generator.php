@@ -1,4 +1,5 @@
 <?php
+    include "./programming/category/category_controller.php";
     include "./programming/author/author_controller.php";
 
     function HTML($type, $data = null) {
@@ -133,6 +134,7 @@
         }
 
         else if($type == "book_add") {
+            $data['categories'] = get_categories();
             $data['authors'] = get_authors();
 
             echo "<img src='data:image;base64,".base64_encode(null)."' alt='Book Cover' class='detail-image'>";
@@ -155,6 +157,16 @@
             echo "<div class='mb-3'>";
             echo "<label for='cover_image' class='form-label'>Cover Image</label>";
             echo "<input name='cover_image' type='file' class='form-control' id='cover_image'>";
+            echo "</div>";
+
+            echo "<div class='mb-3'>";
+            echo "<label for='category' class='form-label'>Category</label>";
+            echo "<select name='category' id='category' class='form-select' aria-label='Default select example'>";
+                echo "<option selected disabled>Choose category...</option>";
+                foreach($data["categories"] as $category) {
+                    echo "<option value='{$category['id']}'>{$category['category_name']}</option>";
+                }
+            echo "</select>";
             echo "</div>";
 
             echo "<div class='mb-3'>";
@@ -188,6 +200,7 @@
         }
 
         else if($type == "book_edit") {
+            $data['categories'] = get_categories();
             $data['authors'] = get_authors();
 
             echo "<img src='data:image;base64,".base64_encode($data["cover_image"])."' alt='Book Cover' class='detail-image'>";
@@ -210,6 +223,20 @@
             echo "<div class='mb-3'>";
             echo "<label for='cover_image' class='form-label'>Cover Image</label>";
             echo "<input name='cover_image' type='file' class='form-control' id='cover_image'>";
+            echo "</div>";
+
+            echo "<div class='mb-3'>";
+            echo "<label for='category' class='form-label'>Category</label>";
+            echo "<select name='category' id='category' class='form-select' aria-label='Default select example'>";
+                echo "<option selected disabled>Choose category...</option>";
+                foreach($data["categories"] as $category) {
+                    if ($data['category_id'] == $category['id']) {
+                        echo "<option value='{$category['id']}' selected>{$category['category_name']}</option>";
+                    } else {
+                        echo "<option value='{$category['id']}'>{$category['category_name']}</option>";
+                    }
+                }
+            echo "</select>";
             echo "</div>";
 
             echo "<div class='mb-3'>";
@@ -250,6 +277,7 @@
             echo "<th scope='row'>{$data['id']}</th>";
             echo "<td><img src='data:image;base64,".base64_encode($data['cover_image'])."' alt='No Cover Image' style='height:180px;width:180px;object-fit:contain;'></td>";
             echo "<td>{$data['title']}</td>";
+            echo "<td>{$data['category_name']}</td>";
             echo "<td>{$data['author_name']}</td>";
             echo "<td>{$data['price']}</td>";
             echo "<td>{$data['stock']}</td>";

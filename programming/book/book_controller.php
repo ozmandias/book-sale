@@ -3,10 +3,10 @@
     function get_books() {
         global $connection;
 
-        $sql = $connection->query("SELECT book.id, title, author_id, author_name, price, stock, description, category_id, cover_image FROM book JOIN author ON book.author_id = author.id ORDER BY id ASC");
+        $sql = $connection->query("SELECT book.id, title, category_id, category_name, author_id, author_name, price, stock, description, category_id, cover_image FROM book JOIN category ON book.category_id = category.id JOIN author ON book.author_id = author.id ORDER BY id ASC");
         $rows = $sql->fetch_all(MYSQLI_ASSOC);
 
-        $connection->close();
+        // $connection->close();
 
         return $rows;
     }
@@ -30,6 +30,7 @@
             $title = $_POST["title"];
             $description = $_POST["description"];
             $cover_image = null /*$_POST["cover_image"]*/;
+            $category = $_POST["category"];
             $author = $_POST["author"];
             $price = $_POST["price"];
             $stock = $_POST["stock"];
@@ -43,8 +44,8 @@
 
             $create_status = false;
     
-            $sql = $connection->prepare("INSERT INTO book (title, description, cover_image, author_id, price, stock) VALUES (?, ?, ?, ?, ?, ?)");
-            $sql->bind_param("sssiss", $title, $description, $cover_image, $author, $price, $stock);
+            $sql = $connection->prepare("INSERT INTO book (title, description, cover_image, category_id, author_id, price, stock) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $sql->bind_param("sssiiss", $title, $description, $cover_image, $category, $author, $price, $stock);
             if($sql->execute()) {
                 $message = "Book created successfully!";
                 echo $message;
@@ -69,6 +70,7 @@
             $title = $_POST["title"];
             $description = $_POST["description"];
             $cover_image = null /*$_POST["cover_image"]*/;
+            $category = $_POST["category"];
             $author = $_POST["author"];
             $price = $_POST["price"];
             $stock = $_POST["stock"];
@@ -82,8 +84,8 @@
 
             $update_status = false;
     
-            $sql = $connection->prepare("UPDATE book SET title = ?, description = ?, cover_image = ?, author_id = ?, price = ?, stock = ? WHERE id = ? ");
-            $sql->bind_param("sssisss", $title, $description, $cover_image, $author, $price, $stock, $id);
+            $sql = $connection->prepare("UPDATE book SET title = ?, description = ?, cover_image = ?, category_id = ?, author_id = ?, price = ?, stock = ? WHERE id = ? ");
+            $sql->bind_param("sssiisss", $title, $description, $cover_image, $category, $author, $price, $stock, $id);
             if($sql->execute()) {
                 $message = "Book updated successfully!";
                 echo $message;
