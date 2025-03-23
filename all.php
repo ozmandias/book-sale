@@ -70,8 +70,7 @@
 										class="icon icon-user"></i><span>Account</span></a>
 							<?php endif; ?>
 
-							<a href="./cart.php" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0
-									$)</span></a>
+							<a href="./cart.php" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart</span></a>
 
 							<!--<div class="action-menu">
 
